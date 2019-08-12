@@ -6,15 +6,20 @@
  * @flow
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-const App = () => {
-  return (
-    <View>
-      <Text> HELLO </Text>
-    </View>
-  );
-};
+import Loading from './screens/loading';
+import Main from './screens/main';
 
-export default App;
+
+export default class App extends Component {
+
+  state = {
+    loading: true
+  }
+
+  render() {
+    return this.state.loading ? <Loading /> : <Main />;
+  }
+}
